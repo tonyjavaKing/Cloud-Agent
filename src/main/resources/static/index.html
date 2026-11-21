@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>云端 Agent 助手工作台</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">✦</div><div><strong>Cloud Agent</strong><span>工作台</span></div></div>
+      <button id="newSession" class="new-session">＋ 新建会话</button>
+      <div class="section-label">我的会话</div>
+      <div id="sessionList" class="session-list"></div>
+      <div class="sidebar-footer"><span class="pulse"></span><span id="agentMode">正在检查 Agent</span></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">云端工作区</div><h1 id="sessionTitle">请选择一个会话</h1></div><div class="top-actions"><span id="statusBadge" class="status idle">空闲</span><button id="refresh" class="icon-button" title="刷新">↻</button></div></header>
+      <div class="content-grid">
+        <section class="conversation panel">
+          <div id="emptyState" class="empty-state"><div class="empty-icon">✦</div><h2>把工作交给助手</h2><p>新建一个会话，描述你要完成的代码或日常工作。</p><button id="emptyNew" class="primary">开始新会话</button></div>
+          <div id="messages" class="messages"></div>
+          <div class="composer-wrap">
+            <div id="uploadHint" class="upload-hint"></div>
+            <form id="composer" class="composer">
+              <textarea id="prompt" rows="2" placeholder="描述任务，例如：帮我创建一个 CSV 数据分析报告…" disabled></textarea>
+              <div class="composer-actions"><label class="attach"><input id="fileInput" type="file" />📎 上传材料</label><span class="shortcut">Ctrl / ⌘ + Enter 发送</span><button class="send" type="submit" disabled>发送 ↗</button></div>
+            </form>
+          </div>
+        </section>
+        <aside class="right-rail">
+          <div class="panel rail-card"><div class="rail-title"><span>执行进度</span><span id="progressLabel">等待任务</span></div><div class="progress-track"><div id="progressBar" class="progress-bar"></div></div><div id="progressSteps" class="progress-steps"><div>○ 等待输入任务</div><div>○ Agent 执行中</div><div>○ 整理成果</div></div></div>
+          <div class="panel rail-card"><div class="rail-title"><span>成果文件</span><span id="artifactCount">0</span></div><div id="artifacts" class="artifacts"><div class="muted">任务完成后，文件会显示在这里</div></div></div>
+          <div class="panel rail-card about"><div class="rail-title">使用提示</div><p>每个会话拥有独立工作目录。上传材料后，直接告诉助手如何分析或整理；关闭页面后会话和成果仍会保留。</p><div class="chip-row"><span>多会话</span><span>可持续对话</span><span>Docker</span></div></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

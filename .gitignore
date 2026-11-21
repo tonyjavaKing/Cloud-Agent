@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log*
+.env
+.env.*
+data/state.json
+data/sessions
+target/
+apache-maven-*/
+maven.zip
+.DS_Store
